@@ -27,7 +27,7 @@ public class TravelClub {
 //        this.clubName = clubName;
         setClubName(clubName); //제약조건을 걸은 세터를 통해 초기화
 //        this.intro = intro;
-        setClubName(intro);
+        setIntro(intro);
         this.foundationDay = DateUtil.today();
         //this 는 0번째 전달인자
         //클럽네임과 인트로를 갖고 초기화를 진행
@@ -55,7 +55,6 @@ public class TravelClub {
     public void setClubName(String clubName){
         if(clubName.length() < MINIMUM_NAME_LENTH) {
             System.out.println("클럽이름은 "+MINIMUM_NAME_LENTH + "자 이상이어야 합니다");
-            System.out.println("클럽이름은 "+MINIMUM_NAME_LENTH + "자 이상이어야 합니다");
             return ;
         }
         this.clubName = clubName;
@@ -68,7 +67,6 @@ public class TravelClub {
 
     public void setIntro(String intro){
         if(intro .length() < MINIMUM_INTRO_LENTH){
-            System.out.println("클럽소개는 " + MINIMUM_INTRO_LENTH + "자 보다 길어야 합니다");
             System.out.println("클럽소개는 " + MINIMUM_INTRO_LENTH + "자 보다 길어야 합니다");
             return;
         }
