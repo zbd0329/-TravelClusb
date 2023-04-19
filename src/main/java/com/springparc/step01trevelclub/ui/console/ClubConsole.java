@@ -97,4 +97,68 @@ public class ClubConsole {
 
     }
 
+    private TravelClub findOne(){
+        //초기화
+        TravelClub foundClub = null;
+
+        while(true){
+            String clubId = consoleUtil.getValueOf("Club id to find(0.Club Menu)");
+            if(clubId.equals("0")){
+                break;
+            }
+
+            foundClub = clubService.findById(clubId);
+
+            if(foundClub != null){
+                break;
+            }else{
+                System.out.println("Can not find club ID :" + clubId);
+            }
+        }
+        return foundClub;
+
+    }
+
+    public void modify(){
+        TravelClub targetClub = findOne();
+
+        String newName = consoleUtil.getValueOf("New Club name(0.club Menu, Enter. No Change");
+        if(newName.equals("0")){
+            return;
+        }
+
+        if(!newName.isEmpty()){
+            targetClub.setClubName(newName);
+        }
+
+        String newIntro = consoleUtil.getValueOf("New Club intro(0.club Menu, Enter. No Change");
+
+        if(newName.equals("0")){
+            return;
+        }
+
+        if(!newName.isEmpty()){
+            targetClub.setIntro(newIntro);
+        }
+
+        clubService.modify(targetClub);
+
+        System.out.println("Modify Club : " + targetClub.toString());
+
+
+    }
+
+    public void remove(){
+        TravelClub targetClub = findOne();
+
+        String confirmStr = consoleUtil.getValueOf("Remove this club? (Y:yew, N:no");
+        if(confirmStr.toLowerCase().equals("y") || confirmStr.toLowerCase().equals("yes")){
+            System.out.println("Removing a club -->" + targetClub.getClubName());
+            clubService.remove(targetClub.getId());
+        }else{
+            System.out.println("Remove cancelled, your club is safe. " + targetClub.getClubName());
+        }
+
+    }
+
 }
