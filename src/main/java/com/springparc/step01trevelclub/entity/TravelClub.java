@@ -7,8 +7,8 @@ public class TravelClub {
 
     //Fields
     // todo : 사용자 정의 상수
-    private static final int MINIMUM_NAME_LENTH = 3;
-    private static final int MINIMUM_INTRO_LENTH =10;
+    private static final int MINIMUM_NAME_LENTH = 1;
+    private static final int MINIMUM_INTRO_LENTH =1;
 
     //Fields, 외부에서 임의로 값을 바꾸지 못하게 해야한다. private로 하는 이유.
     private String id;

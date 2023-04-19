@@ -31,12 +31,35 @@ public class ClubServiceLogic implements ClubService {
 
     @Override
     public TravelClub[] findByName(String clubName) {
-        return new TravelClub[0];
+        TravelClub[] createdClubs = Arrays.copyOfRange(clubs, 0 , index);
+        TravelClub[] foundClubs = new TravelClub[createdClubs.length]; //만들어진 클럽 갯수만큼 배열을 만들어준다
+        int subIndex = 0;
+
+        for(TravelClub club : createdClubs){
+            if(club.getClubName().equals(clubName)){
+                foundClubs[subIndex] = club;
+                subIndex++;
+            }
+        }
+
+
+
+        return Arrays.copyOfRange(foundClubs,0,subIndex);
     }
 
     @Override
     public TravelClub findById(String clubId) {
-        return null;
+        TravelClub[] createdClubs = Arrays.copyOfRange(clubs, 0 , index);
+        TravelClub foundClub = null;
+        for(TravelClub club : createdClubs){
+            //문자열 비교이기 때문에 equals로 비교해야한다
+            if(club.getId().equals(clubId)){
+                foundClub =club;
+                break;
+
+            }
+        }
+        return foundClub;
     }
 
     @Override
