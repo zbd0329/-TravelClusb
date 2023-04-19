@@ -3,6 +3,7 @@ package com.springparc.step01trevelclub.ui.console;
 import com.springparc.step01trevelclub.entity.TravelClub;
 import com.springparc.step01trevelclub.service.ClubService;
 import com.springparc.step01trevelclub.service.logic.ClubServiceLogic;
+import com.springparc.step01trevelclub.service.logic.ServiceLogicLifeCycler;
 import com.springparc.step01trevelclub.util.ConsoleUtil;
 
 public class ClubConsole {
@@ -14,7 +15,8 @@ public class ClubConsole {
     public ClubConsole(){
         this.consoleUtil = new ConsoleUtil();
         // 이후 변경될 코드
-        this.clubService = new ClubServiceLogic();
+//        this.clubService = new ClubServiceLogic();
+        this.clubService = ServiceLogicLifeCycler.getUniqueInstance().getClubService();
     }
 
     public void register(){
