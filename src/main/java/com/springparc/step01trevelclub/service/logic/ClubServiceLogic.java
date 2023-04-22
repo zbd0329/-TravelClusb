@@ -29,6 +29,7 @@ public class ClubServiceLogic implements ClubService {
         return Arrays.copyOfRange(clubs, 0, index);
     }
 
+    //이름으로 찾기
     @Override
     public TravelClub[] findByName(String clubName) {
         TravelClub[] createdClubs = Arrays.copyOfRange(clubs, 0 , index);
@@ -47,6 +48,7 @@ public class ClubServiceLogic implements ClubService {
         return Arrays.copyOfRange(foundClubs,0,subIndex);
     }
 
+    // 아이디로 찾기
     @Override
     public TravelClub findById(String clubId) {
         TravelClub[] createdClubs = Arrays.copyOfRange(clubs, 0 , index);
@@ -62,6 +64,7 @@ public class ClubServiceLogic implements ClubService {
         return foundClub;
     }
 
+    //수정 기능구현
     @Override
     public void modify(TravelClub modifyClub) {
         int foundIndex = 0;
@@ -76,6 +79,7 @@ public class ClubServiceLogic implements ClubService {
 
     }
 
+    //삭제 기능 구현
     @Override
     public void remove(String clubId) {
         int foundIndex = 0;
